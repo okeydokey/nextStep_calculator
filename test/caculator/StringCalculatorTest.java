@@ -18,28 +18,33 @@ public class StringCalculatorTest {
 
     @Test
     public void 빈문자열() {
-        assertEquals(sc.sum(" "), 0);
-        assertEquals(sc.sum(null), 0);
+        assertEquals(0, sc.sum(" "));
+        assertEquals(0, sc.sum(null));
+    }
+
+    @Test
+    public void 문자열_한개() {
+        assertEquals(1, sc.sum("1"));
     }
 
     @Test
     public void 쉼표_두개() {
-        assertEquals(sc.sum("1,2"), 3);
+        assertEquals(3, sc.sum("1,2"));
     }
 
     @Test
     public void 쉼표_세개() {
-        assertEquals(sc.sum("1,2,3"), 6);
+        assertEquals(6, sc.sum("1,2,3"));
     }
 
     @Test
     public void 쉼표와_콜론_복합() {
-        assertEquals(sc.sum("1,2:3"), 6);
+        assertEquals(6, sc.sum("1,2:3"));
     }
 
     @Test
     public void 커스텀_구분자() {
-        assertEquals(sc.sum("//;\n1;2;3"), 6);
+        assertEquals(6, sc.sum("//;\n1;2;3"));
     }
 
     @Test(expected = RuntimeException.class)
